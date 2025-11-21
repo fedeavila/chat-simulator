@@ -1,29 +1,31 @@
 import React from 'react'
+import '../../styles/messagesList.css'
 
 const MessagesList = ({ messages }) => {
+    if (!messages || messages.length === 0) {
+        return <span className="no-messages">No hay chats todavía...</span>
+    }
+
     return (
-        <div>
-            {
-                messages.length === 0
-                    ? <span>No hay chats todavía...</span>
-                    : messages.map(
-                        (message) => {
-                            return <div>
-                                <h3>{message.author_name}</h3>
-                                <p>{message.content}</p>
-                                <span>{message.created_at}</span>
-                                <span>
-                                    {
-                                        message.status === 'VIEWED'
-                                            ? <span>✅</span>
-                                            : <span>☑️</span>
-                                    }
-                                </span>
-                            </div>
-                        }
-                    )
-            }
-            <hr />
+        <div className="messages-list">
+            {messages.map((message) => (
+                <div
+                    key={message.id}
+                    className={`message ${message.author_id === 50 ? 'user' : 'bot'
+                        }`}
+                >
+                    <div className="message-content">
+                        <p>{message.content}</p>
+                    </div>
+                    <div className="message-meta">
+                        <span className="author">{message.author_name}</span>
+                        <span className="time">{message.created_at}</span>
+                        <span className="status">
+                            {message.status === 'VIEWED' ? '✅' : '☑️'}
+                        </span>
+                    </div>
+                </div>
+            ))}
         </div>
     )
 }

@@ -1,0 +1,11 @@
+:root {
+    --color-primary: #0078d7;
+    --color-secondary: #e5e5ea;
+    --color-bg: #f5f7fa;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: var(--color-bg);
+}

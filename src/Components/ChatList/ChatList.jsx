@@ -13,14 +13,13 @@ const ChatList = ({ contacts, addNewContact }) => {
                     (contact) => {
                         return (
                             <>
-
-                                <Link to={'/chat/' + contact.id} key={contact.id}>
-                                    <img width={'50px'} src={contact.profile_picture} />
-                                    <h2>{contact.name}</h2>
-                                    <span>última conexión: {contact.last_connection}</span>
+                                <Link to={'/chat/' + contact.id} key={contact.id} className="contact">
+                                    <img className="avatar" src={contact.profile_picture} alt={contact.name} />
+                                    <div className="contact-info">
+                                        <h2>{contact.name}</h2>
+                                        <span>última conexión: {contact.last_connection}</span>
+                                    </div>
                                 </Link>
-                                <br />
-                                <hr />
                             </>
                         )
                     }

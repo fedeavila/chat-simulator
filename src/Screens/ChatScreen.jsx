@@ -36,22 +36,24 @@ const ChatScreen = () => {
     function createNewMessage(message) {
         const new_message = {
             id: chatDetail.messages.length + 1,
-            content: message,
+            content: message.trim(),
             author_id: 50,
             author_name: 'Federico',
             created_at: 'Hoy',
             status: 'VIEWED'
         }
+
         setContacts(prev_state =>
-            prev_state.map(chat => {
-                if (Number(chat.id) === Number(chat_id)) {
-                    chat.messages = [...chat.messages, new_message]
-                }
-                return chat
-            })
+            prev_state.map(chat =>
+                Number(chat.id) === Number(chat_id)
+                    ? { ...chat, messages: [...chat.messages, new_message] }
+                    : chat
+            )
         )
+
         setTimeout(sendAutomaticMessage, 2000)
     }
+
 
     function sendAutomaticMessage() {
         const new_message = {
@@ -62,13 +64,13 @@ const ChatScreen = () => {
             created_at: 'Ahora mismo',
             status: 'VIEWED'
         }
+
         setContacts(prev_state =>
-            prev_state.map(chat => {
-                if (Number(chat.id) === Number(chat_id)) {
-                    chat.messages = [...chat.messages, new_message]
-                }
-                return chat
-            })
+            prev_state.map(chat =>
+                Number(chat.id) === Number(chat_id)
+                    ? { ...chat, messages: [...chat.messages, new_message] }
+                    : chat
+            )
         )
     }
 

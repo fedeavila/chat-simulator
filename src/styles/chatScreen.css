@@ -1,0 +1,29 @@
+.chat-screen {
+    display: flex;
+    height: 100vh;
+}
+
+.chat-list-panel {
+    width: 25%;
+    border-right: 1px solid #ddd;
+    background: #fff;
+}
+
+.chat-detail-panel {
+    flex: 1;
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .chat-screen {
+        flex-direction: column;
+    }
+
+    .chat-list-panel {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+}

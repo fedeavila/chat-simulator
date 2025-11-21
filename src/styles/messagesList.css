@@ -1,0 +1,53 @@
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message {
+    max-width: 70%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    animation: fadeIn 0.3s ease;
+}
+
+.message.user {
+    background: #0078d7;
+    color: #fff;
+    margin-left: auto;
+}
+
+.message.bot {
+    background: #e5e5ea;
+    color: #000;
+    margin-right: auto;
+}
+
+.message-content {
+    margin-bottom: 6px;
+}
+
+.message-meta {
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.no-messages {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+}
