@@ -45,4 +45,8 @@ El usuario debe poder:
 1. Crear un chat nuevo.  
 2. Seleccionarlo en la lista lateral.  
 3. Escribir un mensaje.  
-4. Visualizar cómo aparece tanto su mensaje como la respuesta automática.  
+4. Visualizar cómo aparece tanto su mensaje como la respuesta automática.
+
+
+## 📌 Vercel
+https://chat-simulator-ten.vercel.app/ 
