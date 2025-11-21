@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router'
 import AddNewContact from '../AddNewContact/AddNewContact'
+import '../../styles/chatList.css'
 
 const ChatList = ({ contacts, addNewContact }) => {
 

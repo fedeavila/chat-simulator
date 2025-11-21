@@ -3,6 +3,7 @@ import ChatList from '../Components/ChatList/ChatList'
 import { getContacts } from '../Services/contactService'
 import { useParams } from 'react-router'
 import ChatDetail from '../Components/ChatDetail/ChatDetail'
+import '../styles/chatScreen.css'
 
 const ChatScreen = () => {
     const [contacts, setContacts] = useState(null)
@@ -10,17 +11,14 @@ const ChatScreen = () => {
     const [error, setError] = useState(null)
     const [chatDetail, setChatDetail] = useState(null)
     const { chat_id } = useParams()
+
     function loadContacts() {
         setLoading(true)
-        setTimeout(
-            () => {
-                const contacts = getContacts()
-                setContacts(contacts)
-                setLoading(false)
-            },
-            2000
-        )
-
+        setTimeout(() => {
+            const contacts = getContacts()
+            setContacts(contacts)
+            setLoading(false)
+        }, 2000)
     }
 
     function addNewContact(name) {
@@ -28,15 +26,11 @@ const ChatScreen = () => {
             id: contacts.length + 1,
             user_id: contacts.length + 1,
             name: name,
-            profile_picture: ' https://i.pravatar.cc/150?img=',
+            profile_picture: 'https://i.pravatar.cc/150?img=',
             last_connection: 'Ahora mismo',
             is_connected: true
         }
-        setContacts(
-            (prev_state) => {
-                return [...prev_state, new_contact]
-            }
-        )
+        setContacts(prev_state => [...prev_state, new_contact])
     }
 
     function createNewMessage(message) {
@@ -48,23 +42,15 @@ const ChatScreen = () => {
             created_at: 'Hoy',
             status: 'VIEWED'
         }
-        setContacts(
-            (prev_state) => {
-                return prev_state.map(
-                    (chat) => {
-                        if (Number(chat.id) === Number(chat_id)) {
-                            chat.messages = [...chat.messages, new_message]
-                        }
-                        return chat
-                    }
-                )
-            }
+        setContacts(prev_state =>
+            prev_state.map(chat => {
+                if (Number(chat.id) === Number(chat_id)) {
+                    chat.messages = [...chat.messages, new_message]
+                }
+                return chat
+            })
         )
-
-        setTimeout(
-            sendAutomaticMessage,
-            2000
-        )
+        setTimeout(sendAutomaticMessage, 2000)
     }
 
     function sendAutomaticMessage() {
@@ -76,63 +62,49 @@ const ChatScreen = () => {
             created_at: 'Ahora mismo',
             status: 'VIEWED'
         }
-        setContacts(
-            (prev_state) => {
-                return prev_state.map(
-                    (chat) => {
-                        if (Number(chat.id) === Number(chat_id)) {
-                            chat.messages = [...chat.messages, new_message]
-                        }
-                        return chat
-                    }
-                )
-            }
+        setContacts(prev_state =>
+            prev_state.map(chat => {
+                if (Number(chat.id) === Number(chat_id)) {
+                    chat.messages = [...chat.messages, new_message]
+                }
+                return chat
+            })
         )
     }
 
     function loadChatDetail() {
-        console.log({
-            contacts,
-            loading,
-            chat_id
-        })
         if (contacts && !loading && chat_id) {
-            const chat_selected = contacts.find(contact => Number(contact.id) === Number(chat_id))
+            const chat_selected = contacts.find(
+                contact => Number(contact.id) === Number(chat_id)
+            )
             setChatDetail(chat_selected)
         }
     }
 
-    useEffect(
-        loadContacts,
-        []
-    )
-
-    useEffect(
-        loadChatDetail,
-        [chat_id, contacts]
-    )
+    useEffect(loadContacts, [])
+    useEffect(loadChatDetail, [chat_id, contacts])
 
     return (
-        <div>
-            {
-                loading
-                    ? <span>Cargando...</span>
-                    : contacts && <ChatList contacts={contacts} addNewContact={addNewContact} />
-            }
-            {
-                !loading && (
-                    !chat_id
-                        ? <h2>No seleccionaste ningún chat...</h2>
-                        : (
-                            chatDetail
-                                ? <ChatDetail chatDetail={chatDetail} createNewMessage={createNewMessage} />
-                                : null
-                        )
-                )
-            }
+        <div className="chat-screen">
+            <div className="chat-list-panel">
+                {loading ? (
+                    <span>Cargando...</span>
+                ) : (
+                    contacts && <ChatList contacts={contacts} addNewContact={addNewContact} />
+                )}
+            </div>
 
-
-            {/* Panel derecho con el detalle del contacto */}
+            <div className="chat-detail-panel">
+                {!loading &&
+                    (!chat_id ? (
+                        <h2>No seleccionaste ningún chat...</h2>
+                    ) : chatDetail ? (
+                        <ChatDetail
+                            chatDetail={chatDetail}
+                            createNewMessage={createNewMessage}
+                        />
+                    ) : null)}
+            </div>
         </div>
     )
 }
