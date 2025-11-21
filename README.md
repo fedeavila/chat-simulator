@@ -47,6 +47,7 @@ El usuario debe poder:
 3. Escribir un mensaje.  
 4. Visualizar cómo aparece tanto su mensaje como la respuesta automática.
 
+---
 
 ## 📌 Vercel
 https://chat-simulator-ten.vercel.app/ 
