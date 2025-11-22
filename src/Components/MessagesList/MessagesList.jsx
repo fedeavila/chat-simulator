@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../Styles/messagesList.css'
+import './messagesList.css';
 
 const MessagesList = ({ messages }) => {
     if (!messages || messages.length === 0) {

@@ -1,6 +1,6 @@
 import MessagesList from '../MessagesList/MessagesList'
 import CreateNewMessage from '../CreateNewMessage/CreateNewMessage'
-import '../../Styles/chatDetail.css'
+import './chatDetail.css';
 
 const ChatDetail = ({ chatDetail, createNewMessage }) => {
     return (

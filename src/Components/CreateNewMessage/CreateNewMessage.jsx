@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../Styles/createNewMessage.css'
+import './createNewMessage.css';
 
 const CreateNewMessage = ({ createNewMessage }) => {
 

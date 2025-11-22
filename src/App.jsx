@@ -1,7 +1,7 @@
 import React from 'react'
 import ChatScreen from './Screens/ChatScreen'
 import { Route, Routes } from 'react-router'
-import './styles/global.css';
+import "./assets/global.css";
 
 
 const App = () => {

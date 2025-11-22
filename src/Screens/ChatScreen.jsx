@@ -3,7 +3,7 @@ import ChatList from '../Components/ChatList/ChatList'
 import { getContacts } from '../Services/contactService'
 import { useParams } from 'react-router'
 import ChatDetail from '../Components/ChatDetail/ChatDetail'
-import '../Styles/chatScreen.css'
+import './chatScreen.css';
 
 const ChatScreen = () => {
     const [contacts, setContacts] = useState(null)
