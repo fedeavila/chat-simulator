@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/messagesList.css'
+import '../../Styles/messagesList.css'
 
 const MessagesList = ({ messages }) => {
     if (!messages || messages.length === 0) {
@@ -21,7 +21,7 @@ const MessagesList = ({ messages }) => {
                         <span className="author">{message.author_name}</span>
                         <span className="time">{message.created_at}</span>
                         <span className="status">
-                            {message.status === 'VIEWED' ? '✅' : '☑️'}
+                            {message.status === 'VIEWED' ? '✔️✔️' : '✔️'}
                         </span>
                     </div>
                 </div>

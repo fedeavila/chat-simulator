@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/createNewMessage.css'
+import '../../Styles/createNewMessage.css'
 
 const CreateNewMessage = ({ createNewMessage }) => {
 
@@ -21,7 +21,7 @@ const CreateNewMessage = ({ createNewMessage }) => {
         <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor='message'>Mensaje: </label>
-                <textarea name='message' id='message' placeholder='Ingresá el mensaje...' rows="2" required />
+                <textarea name='message' id='message' placeholder='Ingresá el mensaje...' rows="1" required />
             </div>
             <button type='submit'> Enviar </button>
         </form>

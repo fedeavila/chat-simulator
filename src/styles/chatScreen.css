@@ -1,6 +1,7 @@
 .chat-screen {
     display: flex;
     height: 100vh;
+    background: var(--color-bg);
 }
 
 .chat-list-panel {
@@ -11,19 +12,7 @@
 
 .chat-detail-panel {
     flex: 1;
-    background: #fafafa;
+    background: var(--color-bg);
     display: flex;
     flex-direction: column;
-}
-
-@media (max-width: 768px) {
-    .chat-screen {
-        flex-direction: column;
-    }
-
-    .chat-list-panel {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-    }
 }

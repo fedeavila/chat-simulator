@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/addNewContact.css'
+import '../../Styles/addNewContact.css'
 
 const AddNewContact = ({ addNewContact }) => {
     const handleSubmitNewContactForm = (event) => {

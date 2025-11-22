@@ -3,7 +3,7 @@ import ChatList from '../Components/ChatList/ChatList'
 import { getContacts } from '../Services/contactService'
 import { useParams } from 'react-router'
 import ChatDetail from '../Components/ChatDetail/ChatDetail'
-import '../styles/chatScreen.css'
+import '../Styles/chatScreen.css'
 
 const ChatScreen = () => {
     const [contacts, setContacts] = useState(null)
@@ -21,16 +21,20 @@ const ChatScreen = () => {
         }, 2000)
     }
 
+    // Randomizar imagen de perfil en nuevo contacto
     function addNewContact(name) {
+        const randomImgId = Math.floor(Math.random() * 70) + 1;
+
         const new_contact = {
             id: contacts.length + 1,
             user_id: contacts.length + 1,
             name: name,
-            profile_picture: 'https://i.pravatar.cc/150?img=',
+            profile_picture: `https://i.pravatar.cc/150?img=${randomImgId}`,
             last_connection: 'Ahora mismo',
             is_connected: true
-        }
-        setContacts(prev_state => [...prev_state, new_contact])
+        };
+
+        setContacts(prev_state => [...prev_state, new_contact]);
     }
 
     function createNewMessage(message) {
